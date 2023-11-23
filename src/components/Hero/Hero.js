@@ -77,7 +77,7 @@ const Hero = () => {
       }}
     />
     <Grid className='hero-Wrapper' container spacing={2}>
-        <Grid className='hero-left' item xs={4} md={4}>
+        <Grid className='hero-left' item xs={12} md={12} lg={4}>
           <div className='hero-text'>
             <motion.p animate={{ opacity: 1 }} initial={{opacity: 0}} transition={{ ease: "easeOut", duration: 2 }} className='hero-text-name'>Hi, <name className="author-name">achraf</name> <TypeAnimation
       sequence={['Here']} speed={250} /></motion.p>
@@ -97,12 +97,12 @@ const Hero = () => {
           </div>
           <div className='hero-cta'></div>
         </Grid>
-        <Grid item md={5}>
+        <Grid item xs={12} md={8} lg={5}>
             <div className='circle-wrapper'>
                 <img className='sideface-img' src={sideface} alt="" />
             </div>
         </Grid>
-        <Grid item xs={8} md={3}>
+        <Grid item xs={12} md={4} lg={3}>
         <div className='hero-right' >
           <div className='hero-right-ships'>
           <motion.div

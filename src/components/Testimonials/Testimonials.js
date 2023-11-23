@@ -68,7 +68,7 @@ const Testimonials = () => {
         <Box sx={{ flexGrow: 1 }} id="testimonials" className="testimonials-section-wrapper">
         <Title titlename="Project-creations" />
         <Box className="thisone">
-        <Carousel cols={2} rows={1} gap={10} loop>
+        <Carousel cols={2} rows={1} gap={10} loop autoplay={5000}>
           <Carousel.Item>
             <img width="100%" src={data.src} className='project-img' />
             <h3 className='project-title'>{data.title}</h3>
