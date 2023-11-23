@@ -1,0 +1,66 @@
+h3 
+{
+    margin: 0;
+    margin-block: 0;
+}
+.testimonials-section-wrapper
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+
+}
+
+.testimonials-img-wrapper img
+{
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+}
+
+.project-wrapper
+{
+    position: relative;
+}
+.project-title
+{
+    position: absolute;
+    top: 0;
+    color: var(--wrapper-white-bg);
+    padding: 2rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 2rem;
+}
+.project-img
+{
+    filter: brightness(40%);
+    border-radius: 7px;
+}
+.project-desc
+{
+    position: absolute;
+    top: 15%;
+    color: var(--wrapper-white-bg);
+    padding: 2rem;
+    width: 500px;
+    display: flex;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1.3px;
+    line-height: 2rem;
+    font-weight: 500;
+    font-size: 20px;
+}
+.thisone
+{
+    margin-top: 4rem;
+}
+lang
+{
+    color: var(--secondary-blue);
+    display: contents;
+}

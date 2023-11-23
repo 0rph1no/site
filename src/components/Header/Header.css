@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Slab:wght@100;300;400;600;700&display=swap');
+.header-wrapper
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.socials-wrapper
+{
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+}
+
+.logo-wrapper
+{
+  display: flex;
+  padding: 2rem;
+  gap: .7rem;
+  
+}
+.logo-text
+{
+  letter-spacing: 3px;
+  font-size: 30px;
+  font-family: 'Inter', sans-serif;
+  color: var(--primary-black);
+}
+.bolded
+{
+  font-weight: bold;
+}

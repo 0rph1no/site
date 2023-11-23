@@ -1,3 +1,23 @@
+:root
+{
+  --full-bg: #36454F;
+  --wrapper-white-bg: #E0E3E5;
+  --primary-black: #353935;
+  --secondary-blue: #028AAF;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+a{
+  text-decoration: none !important;
+  color: inherit;
+}
+p 
+{
+  margin: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +25,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--full-bg) !important;
 }
 
 code {
