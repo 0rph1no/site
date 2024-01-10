@@ -17,6 +17,7 @@
     font-family: 'Roboto Slab', serif;
     font-weight: bold;
     padding: 2rem;
+    min-width: max-content;
 }
 .chip-content
 {
@@ -41,6 +42,14 @@ name{
     background-repeat: no-repeat;
     background-position: 6px 115%
 }
+.author-name span
+{
+    position: relative;
+    display: inline-block;
+    animation: flip 6s infinite;
+    animation-delay: calc(.2s * var(--i));
+    /* margin: 0px 1px; */
+}
 .hero-subtext
 {
     display: flex;
@@ -62,20 +71,46 @@ name{
     display: flex;
     padding: 2rem;
     gap: 32px;
+    margin-top: 2rem;
 }
 .sec-btn
 {
     color: var(--secondary-blue) !important;
     border: 1px solid var(--secondary-blue);
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
 }
 .pri-btn
 {
+    position: relative;
     background-color: var(--secondary-blue) !important;
     color: var(--primary-black) !important;
     display: flex;
-    gap: 8px;
+    gap: 12px;
+    padding: 1rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    box-shadow: none !important;
+}
+.pri-btn i,.sec-btn i{
+    position: absolute;
+    width: 4rem;
+    background: var(--wrapper-white-bg);
+    top: -3px;
+    height: 4px;
+    right: 15px;
+    animation: 3s infinite cubic-bezier(0.075, 0.82, 0.165, 1) wider-i;
 }
 
+.pri-btn ii,.sec-btn ii{
+    position: absolute;
+    width: 4rem;
+    background: var(--wrapper-white-bg);
+    bottom: -3px;
+    height: 4px;
+    left: 15px;
+    animation: 3s infinite cubic-bezier(0.075, 0.82, 0.165, 1) wider-ii;
+}
 .circle-wrapper
 {
     display: flex;
@@ -128,10 +163,12 @@ name{
 }
 
 .box {
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
-    background: var(--secondary-blue);
+    background: transparent;
+    border-radius: 50%;
+    border: 1px solid var(--secondary-blue);
   }
   
 .spinning-text-wrapper
@@ -158,6 +195,18 @@ name{
     position: absolute;
     top: 48%;
     left: 48%;
+}
+@keyframes wider-i {
+    0%, 80%{width: 4rem}
+    50%{width: 2rem}
+}
+@keyframes wider-ii {
+    0%, 80%{width: 4rem}
+    50%{width: 2rem}
+}
+
+@keyframes flip {
+    0%, 80%{transform: rotateX(360deg)}
 }
 #rotatingText {
     animation-name: rotate-circle;

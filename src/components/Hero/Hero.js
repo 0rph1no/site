@@ -11,6 +11,42 @@ import { useRef, useEffect, useState } from "react";
 import { useFollowPointer } from "./use-follow-pointer";
 import MouseIcon from '@mui/icons-material/Mouse';
 import { TypeAnimation } from 'react-type-animation';
+import { gsap } from "gsap";
+    
+import { TextPlugin } from "gsap/TextPlugin";
+
+
+gsap.registerPlugin(TextPlugin);
+
+function setUsername() {
+  var name = "Achraf";
+  var ar = name.split("");
+  var element = document.querySelector("#author-name");
+  for (let index = 0; index < ar.length; index++) {
+    var sp = document.createElement("span");
+    sp.setAttribute("style", "--i:"+(index+1));
+    sp.textContent = ar[index];
+    element.appendChild(sp);
+  }
+}
+
+function update_hero_skills() {
+  var skills = ["A Fullstack developer", "A ui/ux design enthousiast", "A cyberSecurity student and practitioner","A blogs writter", "A football player", "A bully"];
+  var mainTimeline = gsap.timeline({
+    repeat: -1
+  })
+  skills.forEach(skill => {
+    var skillTimeline = gsap.timeline({
+      repeat: 1,
+      yoyo: true
+    })
+    skillTimeline.to("#hero-skills",{
+      text: skill,
+      duration: 3
+    })
+    mainTimeline.add(skillTimeline)
+  })
+}
 
 
 const generate_x = () =>
@@ -46,7 +82,7 @@ console.log(continuousMotion.x);
 
 
 const Hero = () => {
-
+  const ResumeUrl = process.env.PUBLIC_URL + '/resume.pdf';
   const ref = useRef(null);
   const { x, y } = useFollowPointer(ref);
   const [chipX, setChipX] = useState(0);
@@ -59,6 +95,8 @@ const Hero = () => {
       setChipX(x);
       setChipY(y);
     }
+    setUsername();
+    update_hero_skills();
   }, []);
   useEffect(() => {
     localStorage.setItem('chipAnimationState', JSON.stringify({ x: chipX, y: chipY }));
@@ -79,20 +117,20 @@ const Hero = () => {
     <Grid className='hero-Wrapper' container spacing={2}>
         <Grid className='hero-left' item xs={12} md={12} lg={4}>
           <div className='hero-text'>
-            <motion.p animate={{ opacity: 1 }} initial={{opacity: 0}} transition={{ ease: "easeOut", duration: 2 }} className='hero-text-name'>Hi, <name className="author-name">achraf</name> <TypeAnimation
+            <motion.p animate={{ opacity: 1 }} initial={{opacity: 0}} transition={{ ease: "easeOut", duration: 2 }} className='hero-text-name'>Hi, <name id="author-name" className="author-name"></name> <TypeAnimation
       sequence={['Here']} speed={250} /></motion.p>
           </div>
           <div className='hero-subtext'>
-            <motion.p animate={{ opacity: 0.6 }} initial={{opacity: 0}} transition={{ ease: "easeOut", duration: 2 }} className='hero-subtext-content'>
-                Software engineer, problem solver and part-time hacker...
+            <motion.p id='hero-skills' animate={{ opacity: 0.6 }} initial={{opacity: 0}} transition={{ ease: "easeOut", duration: 2 }} className='hero-subtext-content'>
+                {/* Software engineer, problem solver and part-time hacker... */}
             </motion.p>
           </div>
           <div className='hero-sec-btn'>
             <Button className='sec-btn' variant="outlined" href="#aboutme">
-                Read More
+                Read More<i></i><ii></ii>
             </Button>
-            <Button className='pri-btn' variant="contained" href="#aboutme">
-                <WavingHandIcon /> Download CV
+            <Button className='pri-btn' variant="contained" href={ResumeUrl} title='' download={true}>
+                <WavingHandIcon /> Download CV<i></i><ii></ii>
             </Button>
           </div>
           <div className='hero-cta'></div>

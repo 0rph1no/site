@@ -23,7 +23,7 @@ const Wrapper = () => {
             <Header />
             <Hero />
             <About />
-            <Testimonials />
+            {/* <Testimonials /> */}
         </Box>
       </Container>
     </>
